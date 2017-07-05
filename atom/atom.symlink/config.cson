@@ -1,0 +1,103 @@
+"*":
+  "activate-power-mode":
+    autoToggle: false
+  "atom-beautify":
+    general:
+      _analyticsUserId: "2a36bc9e-5d47-4c62-aa8e-29231a17fdee"
+    php: {}
+  "atom-material-ui":
+    colors:
+      abaseColor: "#0096ff"
+      accentColor: "#ff781a"
+      genAccent: true
+      predefinedColor: "Red"
+    fonts: {}
+    tabs:
+      compactTabs: true
+      tintedTabBar: true
+    treeView:
+      blendTabs: true
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  core:
+    disabledPackages: [
+      "ex-mode"
+      "vim-mode"
+      "php-cs-fixer"
+      "ti-create"
+      "linter-jshint"
+      "jshint"
+      "pigments"
+      "activate-power-mode"
+      "atom-runner"
+      "build"
+      "busy"
+      "emmet"
+      "language-pseudo"
+      "php-debug"
+      "script"
+      "script-runner"
+      "titanium-alloy"
+      "titanium-build"
+      "titanium-language-javascript"
+      "linter-jscs"
+      "hyperclick"
+      "metrics"
+      "exception-reporting"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "monokai"
+    ]
+  editor:
+    fontSize: 12
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "6b464fea-700f-566e-5618-a617bf9123ff"
+  "file-icons": {}
+  "highlight-line":
+    enableBackgroundColor: false
+  "linter-eslint": {}
+  "linter-php":
+    executablePath: "/usr/bin/php"
+  "linter-ui-default":
+    panelHeight: 81
+    showPanel: true
+  minimap:
+    disablePythonDocLinks: true
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "one-dark-ui": {}
+  "php-cs-fixer": {}
+  "php-debug": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "vim-mode": {}
+  welcome:
+    showOnStartup: false
+".alloyxml.text":
+  editor:
+    tabLength: 4
+".css.source.tss":
+  editor:
+    tabLength: 4
+".ini.source":
+  editor:
+    tabLength: 4
+".js.regexp.replacement.source":
+  editor:
+    tabLength: 4
+".js.regexp.source":
+  editor:
+    tabLength: 4
+".js.source":
+  editor:
+    tabLength: 4
