@@ -1,0 +1,75 @@
+# Path to dotfiles directory
+export DOTFILES=$HOME/.dotfiles
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$DOTFILES/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=$DOTFILES/zsh
+
+# Custom function to check if a shell command exists
+command_exists() {
+    type "$1" > /dev/null 2>&1
+}
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+    git git-flow
+    nvm node npm
+    history history-substring-search
+    zsh-autosuggestions
+    command-not-found
+    sudo
+    tmux
+    vagrant
+    vi-mode
+    osx brew
+)
+
+source $ZSH/.oh-my-zsh/oh-my-zsh.sh
+
+# User configuration
+
+# Preferred editor for local and remote sessions
+export EDITOR='vim'
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Override default PHP with v5.5
+export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+
+# Z Path Configuration
+. `brew --prefix`/etc/profile.d/z.sh
+
+# Install rbenv
+if command_exists rbenv; then
+    eval "$(rbenv init -)"
+fi
+
+# Environment variables
+export NODE_ENV=development
+
+# Source all .zsh files inside of the zsh/ directory
+for config ($ZSH/**/*.zsh) source $config
+
+# Load custom environment variables from .localrc, if present
+[ -f ~/.localrc ] && source ~/.localrc
+
+# Configure command-line fuzzy finder
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

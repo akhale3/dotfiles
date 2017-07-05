@@ -1,0 +1,177 @@
+Host *
+  ServerAliveInterval 120
+
+Host github.com
+  HostName github.com
+  User git
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_rsa_work
+
+Host github-personal
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_personal
+
+Host bitbucket.org
+ HostName bitbucket.org
+ User git
+ UseKeychain yes
+ AddKeysToAgent yes
+ PreferredAuthentications publickey
+ IdentityFile ~/.ssh/id_rsa_bitbucket
+
+Host fisb-node-central-dev
+  Hostname 52.67.98.195
+  User ec2-user
+  IdentityFile "~/.ssh/FIS-Brazil-Gogo KP01.pem"
+
+Host cb-php-central-dev
+  Hostname 52.67.219.231
+  User ec2-user
+  IdentityFile "~/.ssh/FIS-Brazil-Gogo KP01.pem"
+
+Host bp-node-central-dev
+  Hostname 54.207.105.15
+  User ec2-user
+  IdentityFile "~/.ssh/FIS-Brazil-Gogo KP01.pem"
+
+Host fisb-de-api
+  Hostname 54.232.231.111
+  User ec2-user
+  IdentityFile "~/.ssh/FIS-Brazil-Gogo KP01.pem"
+
+Host php-central-admin-dev
+  Hostname 54.94.149.65
+  User ec2-user
+  IdentityFile "~/.ssh/FIS-Dev-Keypair.pem"
+
+Host bp-node-central-qa
+  Hostname 54.207.44.219
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-uat.pem"
+
+Host bp-php-central-qa
+  Hostname 54.233.87.86
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-uat.pem"
+
+Host cb-node-central-qa
+  Hostname 54.207.104.234
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-uat.pem"
+
+Host cb-php-central-qa
+  Hostname 54.94.165.60
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-uat.pem"
+
+Host cb-php-central-1
+  Hostname 54.232.228.250
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-production.pem"
+
+Host cb-php-central-2
+  Hostname 54.233.115.114
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-production.pem"
+
+Host cb-node-central-1
+  Hostname 54.233.73.152
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-production.pem"
+
+Host cb-node-central-2
+  Hostname 54.207.95.234
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-production.pem"
+
+Host bp-node-central-prod-1
+  Hostname 54.207.101.161
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-production.pem"
+
+Host bp-node-central-prod-2
+  Hostname 54.207.86.228
+  User ec2-user
+  IdentityFile "~/.ssh/fisb-production.pem"
+
+Host development01
+  Hostname 104.236.118.18
+  User anishkhale
+  IdentityFile "~/.ssh/development01.pem"
+
+Host evertec-php-central-dev
+  Hostname 52.87.160.113
+  User ec2-user
+  IdentityFile "~/.ssh/evertec-dev.pem"
+
+Host nexus-php-central-dev
+  Hostname 52.67.206.81
+  User ec2-user
+  IdentityFile "~/.ssh/nexus-development-sa.pem"
+
+Host nexus-washington-dev
+  Hostname 54.207.112.22
+  User ec2-user
+  IdentityFile "~/.ssh/nexus-development-sa.pem"
+
+Host central-ccqa
+  Hostname 54.85.30.232
+  User ec2-user
+  IdentityFile "~/.ssh/mygogokeypair.pem"
+
+Host php-corecard-dev
+  Hostname 54.175.25.245
+  User ec2-user
+  IdentityFile "~/.ssh/mygogokeypair.pem"
+
+Host node-corecard-dev
+  Hostname 54.86.57.21
+  User ec2-user
+  IdentityFile "~/.ssh/mygogokeypair.pem"
+
+Host gallifrey
+  Hostname 54.159.116.147
+  User ubuntu
+  IdentityFile "~/.ssh/development01.pem"
+
+Host health-monitor-1
+  Hostname 52.91.74.76
+  User ec2-user
+  IdentityFile "~/.ssh/health-monitor-production.pem"
+
+Host health-monitor-2
+  Hostname 107.21.36.194
+  User ec2-user
+  IdentityFile "~/.ssh/health-monitor-production.pem"
+
+Host nexus-salt-dev
+  Hostname 52.67.23.164
+  User ec2-user
+  IdentityFile "~/.ssh/nexus-development-sa.pem"
+
+Host nexus-salt-prod
+  Hostname 52.67.96.123
+  User ec2-user
+  IdentityFile "~/.ssh/nexus-production-sa.pem"
+
+Host kali-flbl
+  Hostname 54.233.127.185
+  User ec2-user
+  IdentityFile "~/.ssh/kali-flbl.pem"
+
+Host salt-testing-saltmaster
+  Hostname 54.242.223.208
+  User ec2-user
+  IdentityFile "~/.ssh/salt-testing.pem"
+
+Host flbl-saltmaster-prod
+  Hostname 52.67.246.173
+  User ec2-user
+  IdentityFile "~/.ssh/flbl-prod.pem"
+
+Host flbl-saltmaster-dev
+  Hostname 54.94.157.71
+  User ec2-user
+  IdentityFile "~/.ssh/flbl-dev.pem"
