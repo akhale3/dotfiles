@@ -47,6 +47,7 @@ Plugin 'tpope/vim-surround'                     " commands for simplifying quoti
 Plugin 'tpope/vim-repeat'                       " enable . to repeat plugin maps
 Plugin 'tpope/vim-commentary'                   " better code commenting
 Plugin 'tpope/vim-unimpaired'                   " easier movement between linting errors
+Plugin 'mtscout6/syntastic-local-eslint.vim'    " prefer local eslint over global
 
 call vundle#end()
 filetype plugin indent on
@@ -71,3 +72,4 @@ nnoremap <Left> :echoe "Use h"<CR>              " disable left arrow key
 nnoremap <Right> :echoe "Use l"<CR>             " disable right arrow key
 nnoremap <Up> :echoe "Use k"<CR>                " disable up arrow key
 nnoremap <Down> :echoe "Use j"<CR>              " disable down arrow key
+let g:syntastic_javascript_checkers=['eslint']  " use eslint syntastic checker
