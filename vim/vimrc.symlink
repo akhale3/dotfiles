@@ -43,6 +43,10 @@ Plugin 'scrooloose/nerdtree'                    " file explorer
 Plugin 'kien/ctrlp.vim'                         " fuzzy finder
 Plugin 'airblade/vim-gitgutter'                 " git gutter
 Plugin 'yggdroot/indentline'                    " display indentations with thin vertical lines
+Plugin 'tpope/vim-surround'                     " commands for simplifying quoting and paranthesis
+Plugin 'tpope/vim-repeat'                       " enable . to repeat plugin maps
+Plugin 'tpope/vim-commentary'                   " better code commenting
+Plugin 'tpope/vim-unimpaired'                   " easier movement between linting errors
 
 call vundle#end()
 filetype plugin indent on
