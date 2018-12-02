@@ -4,7 +4,7 @@ filetype off                                    " disable filetype detection
 set expandtab                                   " tab to space
 set shiftwidth=2                                " 1 tab = 2 spaces
 set softtabstop=2                               " 1 tab = 2 spaces
-set t_Co=256                                    " 256-bit color support 
+set t_Co=16                                     " 16-bit color support for solarized theme
 set hidden                                      " hide buffers instead
 set number                                      " show line numbers
 set relativenumber                              " active line number is always 0
@@ -48,6 +48,7 @@ Plugin 'tpope/vim-repeat'                       " enable . to repeat plugin maps
 Plugin 'tpope/vim-commentary'                   " better code commenting
 Plugin 'tpope/vim-unimpaired'                   " easier movement between linting errors
 Plugin 'mtscout6/syntastic-local-eslint.vim'    " prefer local eslint over global
+Plugin 'editorconfig/editorconfig-vim'          " set editor preferences as per .editorconfig
 
 call vundle#end()
 filetype plugin indent on
@@ -55,9 +56,16 @@ filetype plugin indent on
 " Look and feel
 let mapleader = ','                             " remap leader to comma
 syntax on                                       " enable syntax highlighting
-colorscheme solarized                           " solarized theme
-let g:airline#extensions#tabline#enabled = 1    " enable smarter tabline
+let g:solarized_termtrans = 16                  " solarized theme
+let g:solarized_termcolors = 16
+let g:solarized_bold = 1
+let g:solarized_underline = 1
+let g:solarized_italic = 1
+colorscheme solarized 
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
 let g:airline_solarized_bg = 'dark'             " vim-airline theme
+let g:airline#extensions#tabline#enabled = 1    " enable smarter tabline
 map <C-n> :NERDTreeToggle<CR>                   " toggle NERDTree
 let g:ctrlp_map = '<c-p>'                       " override default command for CtrlP
 let g:ctrlp_cmd = 'CtrlP'                       " override default command for CtrlP

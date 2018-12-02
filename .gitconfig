@@ -1,0 +1,8 @@
+[user]
+	name = Anish Khale
+	email = anish@firstperformance.com
+	signingkey = FD5898B9E616EDC7
+[core]
+	editor = vim
+[commit]
+	gpgsign = true
