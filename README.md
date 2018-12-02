@@ -1,11 +1,13 @@
-<div align="center">
-  <a href="https://github.com/akhale3/dotfiles" title="logo">
-    <img alt="akhale3's dotfiles" src="lib/icon.png" width="128px" />
-  </a>
-  <br />
-  <h1>akhale3's dotfiles</h1>
-</div>
+# dotfiles
+Get started with a brand new development workstation in a few minutes
 
-<p align="center">
-  dotfiles for simplifying new development machine setup
-</p>
+## Installation
+1. Clone the git repository.
+```shell
+git clone git@github.com:akhale3/dotfiles.git
+```
+2. Copy all `.*` files to `~`.
+```shell
+cp -a dotfiles/.* ~
+```
+3. `lib` folder contains useful resources for miscellaneous applications.
