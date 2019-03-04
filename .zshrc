@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:$HOME/bin:$PATH
+# 'export PATH="/usr/local/sbin:$PATH"
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 
 # Custom function to check if a shell command exists
 command_exists() {
@@ -56,6 +57,7 @@ JIRA_NAME=5a30366688ed5b3ea9db1bc3
 alias emacs='emacs -nw'
 alias less='less -m -N -g -i -J --line-numbers --underline-special'
 alias more='less'
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 
 # Source custom plugins
 . /usr/local/etc/profile.d/z.sh
@@ -64,6 +66,10 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Key Bindings
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # Source nvm
 export NVM_DIR="$HOME/.nvm"
