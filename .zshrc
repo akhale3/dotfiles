@@ -13,7 +13,15 @@ export ZSH="/Users/anishkhale/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# Powerlevel9k options
+POWERLEVEL9K_MODE="nerdfont-complete"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs node_version)
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=1
@@ -24,9 +32,13 @@ export UPDATE_ZSH_DAYS=1
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-iterm-touchbar
-  jira
+  zsh-completions
+  zsh-syntax-highlighting
+  history-substring-search
+  zsh-autosuggestions
+  fasd
 )
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,14 +49,14 @@ export EDITOR=vim
 export NODE_ENV=development
 export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
 export LESS=" -R"
-export SLACK_WEBHOOK_URL='https://hooks.slack.com/services/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'
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Customize prompt
 DEFAULT_USER=anishkhale
-
-# JIRA setup
-JIRA_URL="https://firstperformance.atlassian.net"
-JIRA_NAME=5a30366688ed5b3ea9db1bc3
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -59,22 +71,18 @@ alias less='less -m -N -g -i -J --line-numbers --underline-special'
 alias more='less'
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 
-# Source custom plugins
-. /usr/local/etc/profile.d/z.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Key Bindings
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
-# Source nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# Setup default node and npm
-nvm use --lts
+# Defer initialization of nvm until nvm, node or a node-dependent command is
+# run. Ensure this block is only run once if .bashrc gets sourced multiple times
+# by checking whether __init_nvm is a function.
+if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type -f __init_nvm)" = function ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+  declare -a __node_commands=('nvm' 'node' 'npm' 'yarn' 'gulp' 'grunt' 'webpack')
+  function __init_nvm() {
+    for i in "${__node_commands[@]}"; do unalias $i; done
+    . "$NVM_DIR"/nvm.sh
+    unset __node_commands
+    unset -f __init_nvm
+  }
+  for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
+fi
